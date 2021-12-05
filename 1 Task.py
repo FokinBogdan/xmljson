@@ -17,10 +17,9 @@ def get_news_and_pub_date(first_element):
 
 
 def save_json(first_element):
-    json_file = json.dumps(get_news_and_pub_date(first_element), ensure_ascii=False).encode('utf8')
     with open("news.json", 'wb') as file:
+        json_file = json.dumps(get_news_and_pub_date(first_element), ensure_ascii=False, indent=3).encode('utf8')
         file.write(json_file)
-
 
 first_element_tree = get_first_element_tree()
 save_json(first_element_tree)
